@@ -24,15 +24,20 @@ answers = [
 ]
 # Índice de la respuesta correcta para cada pregunta, el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
+# Lista de indices
+ind = [int(0), int(1), int(2), int(3), int(4)]
 puntos = 0
+num = random.sample(ind, k=3)  
 # El usuario deberá contestar 3 preguntas
 for _ in range(3):
+    print(_)
+    # Guardamos todas las listas en una sola, ordenada por indices
+    conjunto = list(zip(questions, answers, correct_answers_index))
     # Guardamos los elementos de manera aleatoria en una variable
-    test = random.choices(list(zip(questions, answers, correct_answers_index)))
-    for q, a, c in test:
-        que = q
-        ans = a
-        cor = c
+    test = conjunto[num[_]]
+    que = test[0]
+    ans = test[1]
+    cor = test[2]
     # Se muestra la pregunta y las respuestas posibles
     print(que)
     for i, ans in enumerate(ans):
